@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <cmath>
 
@@ -192,9 +191,13 @@ int main()
         // Create camera transformations
         glm::mat4 view;
         view = camera.GetViewMatrix();
-        glm::mat4 projection;
         // TODO: set up the project matrix
-
+        glm::mat4 projection;
+        //defining user field of view
+        float aspectRatio = (float)WIDTH/(float)HEIGHT;
+        float FOV = glm::radians(45.0f);
+        //generating perspective projection matrix
+        projection = glm::perspective(FOV, aspectRatio, 0.1f, 100.0f);
 
         // Get the uniform locations
         GLint modelLoc = glGetUniformLocation(lightingShader.Program, "model");
