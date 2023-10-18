@@ -1,4 +1,3 @@
-
 #version 330 core
 layout (location = 0) in vec3 position;
 layout (location = 1) in vec3 normal;
@@ -12,6 +11,10 @@ uniform mat4 projection;
 
 void main()
 {
-    // TODO: Your code here
-    // Remember to set gl_Position (correctly) or you will get a black screen...
-} 
+    // Transform the vertex position and vertex normal to world coordinates
+    FragPos = vec3(model * vec4(position, 1.0));
+    Normal = mat3(transpose(inverse(model))) * normal;
+
+    // Calculating the final position of the vertex
+    gl_Position = projection * view * (model * vec4(position, 1.0));
+}
