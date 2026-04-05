@@ -17,3 +17,6 @@ Built for COSC 4370 (Computer Graphics) at the University of Houston.
 - `phong.vs` — Vertex shader for position and normal transforms
 - `phong.frag` — Fragment shader implementing Phong shading
 - `Report.pdf` — Implementation writeup with rendered output
+
+## Output
+[Phong shaded cube](CUBE.png)
